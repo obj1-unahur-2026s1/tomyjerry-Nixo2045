@@ -1,17 +1,61 @@
 import tomJerryNibbles.*
 
-describe "Grupo de test" {
+describe "test de Tom" {// agrupa varios test 
 
-  test "test 1" {
-    assert.equals(100, 50+50)
+  test "la velocidad maxima de Tom es 10" {
+    assert.equals(10,tom.velocidadMaxima())
   }
 
-  test "test 3" {
-    assert.that(true)
+  test "la velocidad maxima de Tom pasa a ser 15.2" {
+    tom.comerAlRaton(jerry)
+    assert.equals(15.2, tom.velocidadMaxima())
   }
 
-  test "test 4" {
-    assert.notThat(false)
+  test "su velocidad maxima pasar a ser 14" {
+    tom.comerAlRaton(jerry)
+    tom.correr(24)
+    assert.equals(14, tom.velocidadMaxima())
   }
 
+  test "la velocidad maxima es 18.7" {
+    tom.comerAlRaton(jerry)
+    tom.correr(24)
+    tom.comerAlRaton(nibbles)
+    assert.equals(18.7, tom.velocidadMaxima())
+  }
+
+test "la velocidad es 25.9" {
+    tom.comerAlRaton(jerry)
+    tom.correr(24)
+    tom.comerAlRaton(nibbles)
+    jerry.cumpleAnos()
+    tom.comerAlRaton(jerry)
+    assert.equals(25.9, tom.velocidadMaxima())
+}
+
+test "su velocidad pasa a ser 24" {
+    tom.comerAlRaton(jerry)
+    tom.correr(24)
+    tom.comerAlRaton(nibbles)
+    jerry.cumpleAnos()
+    tom.comerAlRaton(jerry)
+    tom.correr(38)
+    assert.equals(24, tom.velocidadMaxima())
+}
+}
+
+describe "test inventados " {
+  test "tom puede cazar a jerry a un metro" {
+    assert.that(tom.puedeCazar(1))
+    
+  }
+
+  test "tom no puede cazar a jerry a 100" {
+    assert.notThat(tom.puedeCazar(100))
+    
+  }
+
+  test "perez pesa 50" {
+    assert.equals(50,perez.peso())  
+  }
 }
